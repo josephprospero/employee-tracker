@@ -50,6 +50,10 @@ function mainMenu() {
             viewAllEmployees(); 
             break;
 
+            case "Add a department":
+            addDepartment();
+            break;
+
             case "End session":
             connection.end();
             break;
@@ -109,4 +113,47 @@ function viewAllRoles() {
         }
     )
 }
+
+// View all employees
+function viewAllEmployees() {
+    connection.query(
+        `SELECT e_id, first_name, last_name, title, name, salary, manager_id
+        FROM employee
+        INNER JOIN role
+        ON employee.role_id = role.r_id
+        INNER JOIN department
+        ON role.department_id = department.d_id
+        ORDER BY e_id ASC;
+        `,
+        function(err, results) {
+            if (err) throw err;
+            console.table(results);
+            backMenu()
+        }
+    )
+}
+
+// Add a Department
+function addDepartment() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What department would you like to add?',
+            name: 'newDepartment'
+        }
+    ]).then(({newDepartment}) => {
+        connection.query(
+            'INSERT INTO department SET ?',
+            {
+                name:newDepartment
+            },
+            function (err, res) {
+                if (err) throw err;
+                console.log(res.affectedRows + ' Department inserted!\n');
+                backMenu();
+            }
+        )
+    })
+}
+
 
