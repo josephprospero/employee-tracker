@@ -27,6 +27,7 @@ function mainMenu() {
             choices: [
                 "View all departments",
                 "View all roles",
+                "View all employees",
                 "Add a department",
                 "Add a role",
                 "Add an employee",
@@ -45,6 +46,10 @@ function mainMenu() {
             viewAllRoles();
             break;
             
+            case "View all employees":
+            viewAllEmployees(); 
+            break;
+
             case "End session":
             connection.end();
             break;
@@ -104,3 +109,4 @@ function viewAllRoles() {
         }
     )
 }
+
