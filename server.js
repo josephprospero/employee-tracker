@@ -32,7 +32,11 @@ function mainMenu() {
         }
     ]).then(({ action }) => {
         console.log(data);
+        switch (answer.action) {
+            case "View all departments";
+            viewAllDepartments();
+            break;
         }
-    );
+    });
     connection.end()
 }
