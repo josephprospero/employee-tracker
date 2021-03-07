@@ -140,7 +140,7 @@ function viewAllRoles() {
 // View all employees
 function viewAllEmployees() {
     connection.query(
-        `SELECT e_id, first_name, last_name, title, name, salary, manager_id
+        `SELECT e_id AS ID, first_name AS First_Name, last_name AS Last_Name, title AS Job_Title, name AS Department, salary AS Annual_Income, manager_id AS Manager_Employee_ID
         FROM employee
         INNER JOIN role
         ON employee.role_id = role.r_id
