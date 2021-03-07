@@ -9,6 +9,7 @@ const connection = mysql2.createConnection({
     password: '',
     database: 'employee_db'
 });
+
 connection.connect(err => {
     if (err) throw err;
     console.log("Welcome!")
@@ -16,6 +17,7 @@ connection.connect(err => {
     mainMenu();
 });
 
+// Main Menu
 function mainMenu() {
     inquirer.prompt([
         {
@@ -50,6 +52,7 @@ function mainMenu() {
     });
 }
 
+// Return menu and End session
 function backMenu() {
     inquirer.prompt([
         {
@@ -72,7 +75,6 @@ function backMenu() {
             connection.end();
             break;}
     });
-    // connection.end()
 }
 
 // All Departments
@@ -87,12 +89,13 @@ function viewAllDepartments() {
     );
 }
 
+// View all roles
 function viewAllRoles() {
     connection.query(
         `SELECT r_id AS role_id, title AS job_title, name AS department_name, salary
-        FROM roles
+        FROM role
         INNER JOIN department
-        ON role.department_id = department.d_d
+        ON role.department_id = department.d_id
         `,
         function(err, results) {
             if (err) throw err;
