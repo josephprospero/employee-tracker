@@ -22,7 +22,7 @@ connection.connect(err => {
     mainMenu();
 });
 
-// Main Menu
+// Main Menu selection
 function mainMenu() {
     makeDepartmentArr();
     makeRoleArr();
@@ -239,8 +239,8 @@ function addRole() {
         )
     })
 }
-
 // End add role functions
+
 
 // Adding employee functions
 function makeRoleArr() {
@@ -349,3 +349,4 @@ function updateRole() {
         )
     })
 }
+// End Add Employee functions
