@@ -7,7 +7,7 @@ departments, and new employees. This tool primarily made up of MySQL2, JavaScrip
 https://drive.google.com/file/d/1TRfrG3pZG8Nxo3d84CFZKX6mFC_Cfd9o/view
 
 ## Table of Employees
-![table](assets\img\employees.jpg)
+![table](assets/img/employees.jpg)
 
 ## Github Repo Link
 https://github.com/josephprospero/employee-tracker/tree/main
